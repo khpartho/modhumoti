@@ -92,52 +92,55 @@
         }
 
         /* Hero Section */
-        .hero {
-            position: relative;
-            text-align: center;
-            color: #fff;
-            overflow: hidden; /* To contain the image */
-            padding: 80px 0; /* Add padding for content */
-            background-color: #333; /* Fallback background */
-        }
+       .hero {
+ position: relative;
+ text-align: center;
+ color: #fff;
+ overflow: hidden; /* Image contain korar jonno */
+ padding: 80px 0; /* Content-er jonno padding যোগ করুন */
+ /* background-color: #333; Fallback background - এটা বাদ দেওয়া হচ্ছে */
+}
 
-        .hero-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the entire section */
-            filter: brightness(0.5); /* Dim the image for text readability */
-            z-index: 1;
-        }
+.hero::before { /* Background image যোগ করার জন্য pseudo element ব্যবহার করছি */
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-image: url('fossil-fuel-hero.jpg'); /* এখানে আপনার ছবির URL দিন */
+ background-size: cover; /* সম্পুর্ণ জায়গা জুড়ে ছবি দেখানোর জন্য */
+ background-position: center; /* ছবি মাঝখানে দেখানোর জন্য */
+ filter: brightness(0.5); /* Text read korar সুবিধার জন্য ছবি কিছুটা অন্ধকার করে */
+ z-index: 1;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.4); /* Slightly transparent background for text */
-            border-radius: 10px;
-        }
+.hero-content {
+ position: relative;
+ z-index: 2;
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: rgba(0, 0, 0, 0.4); /* Text-এর জন্য হালকা transparent background */
+ border-radius: 10px;
+}
 
-        .hero h2 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+.hero h2 {
+ font-size: 3.5em;
+ margin-bottom: 15px;
+ font-weight: 700;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 25px;
-        }
+.hero p {
+ font-size: 1.2em;
+ margin-bottom: 25px;
+}
 
-        .hero p span {
-            font-weight: bold;
-            color: #fdd835;
-        }
+.hero p span {
+ font-weight: bold;
+ color: #fdd835;
+}
 
         /* Buttons */
         .btn {
