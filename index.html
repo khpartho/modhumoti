@@ -92,14 +92,38 @@
         }
 
         /* Hero Section */
-        .hero {
-            position: relative;
-            text-align: center;
-            color: #fff;
-            overflow: hidden; /* To contain the image */
-            padding: 80px 0; /* Add padding for content */
-            background-color: #333; /* Fallback background */
-        }
+       .hero {
+ position: relative;
+ text-align: center;
+ color: #fff;
+ overflow: hidden;
+ padding: 80px 0;
+ display: flex;
+ flex-direction: column; /* লেখাগুলাকে উল্লম্বভাবে সাজানোর জন্য */
+ align-items: center; /* লেখাগুলাকে অনুভূমিকভাবে মাঝখানে আনার জন্য */
+ justify-content: center; /* লেখাগুলাকে উল্লম্বভাবে মাঝখানে আনার জন্য */
+ min-height: 500px; /* প্রয়োজন অনুযায়ী উচ্চতা সেট করুন */
+ background-image: url('fossil-fuel-hero.jpg'); /* আপনার ছবির URL দিন */
+ background-size: cover; /* অথবা contain - আপনার প্রয়োজন অনুযায়ী */
+ background-position: center;
+}
+
+/* যদি আপনার হিরো সেকশনে কোনো ওভারলে থাকে (যেমন হালকা কালো রঙের), তবে সেটা .hero::before দিয়ে করতে পারেন: */
+/ .hero::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5); /* হালকা কালো রঙের ওভারলে */
+ z-index: 1;
+}
+
+.hero > * { /* হিরোর ভেতরের এলিমেন্টগুলোর z-index বাড়িয়ে ওভারলের উপরে দেখানোর জন্য */
+ z-index: 2;
+ position: relative; /* পজিশনিং কনটেক্সট তৈরি করার জন্য */
+} */
 
         .hero-image {
             position: absolute;
