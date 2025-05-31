@@ -92,61 +92,97 @@
         }
 
         /* Hero Section */
-       .hero {
-    position: relative; /* যাতে child elements এর position control করা যায় */
-    text-align: center;
-    color: #fff;
-    overflow: hidden; /* ব্যাকগ্রাউন্ড ইমেজ কন্টেইন করার জন্য */
-    padding: 80px 0; /* কন্টেন্টের জন্য পর্যাপ্ত padding */
-    display: flex; /* কন্টেন্টকে উল্লম্বভাবে মাঝখানে আনতে */
-    align-items: center; /* উল্লম্বভাবে মাঝখানে */
-    justify-content: center; /* অনুভূমিকভাবে মাঝখানে */
-    min-height: 500px; /* হিরো সেকশনের একটি নির্দিষ্ট উচ্চতা সেট করা */
-}
+        .hero {
 
-.hero::before { /* ব্যাকগ্রাউন্ড ইমেজ যোগ করার জন্য pseudo element */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('fossil-fuel-hero.jpg'); /* এখানে আপনার ছবির URL/path দিন */
-    background-size: cover; /* সম্পূর্ণ জায়গা জুড়ে ছবি দেখানোর জন্য */
-    background-position: center; /* ছবি মাঝখানে দেখানোর জন্য */
-    filter: brightness(0.5); /* টেক্সট পড়ার সুবিধার জন্য ছবি কিছুটা অন্ধকার করে */
-    z-index: 1; /* ছবিটি কন্টেন্টের নিচে থাকবে */
-}
+            position: relative;
 
-.hero-content {
-    position: relative;
-    z-index: 2; /* কন্টেন্ট ছবির উপরে থাকবে */
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.4); /* টেক্সটের জন্য হালকা transparent ব্যাকগ্রাউন্ড */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* একটি হালকা শ্যাডো যোগ করা হয়েছে */
-}
+            text-align: center;
 
-.hero h2 {
-    font-size: 3.5em;
-    margin-bottom: 15px;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: #fff; /* নিশ্চিত করা হচ্ছে যে শিরোনাম সাদা */
-}
+            color: #fff;
 
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    color: #f0f0f0; /* নিশ্চিত করা হচ্ছে যে প্যারাগ্রাফ হালকা সাদা */
-}
+            overflow: hidden; /* To contain the image */
 
-.hero p span {
-    font-weight: bold;
-    color: #fdd835; /* স্প্যান টেক্সট হলুদ থাকবে */
-}
+            padding: 80px 0; /* Add padding for content */
+
+            background-color: #333; /* Fallback background */
+
+        }
+
+
+
+        .hero-image {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover; /* Cover the entire section */
+
+            filter: brightness(0.5); /* Dim the image for text readability */
+
+            z-index: 1;
+
+        }
+
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            padding: 20px;
+
+            background-color: rgba(0, 0, 0, 0.4); /* Slightly transparent background for text */
+
+            border-radius: 10px;
+
+        }
+
+
+
+        .hero h2 {
+
+            font-size: 3.5em;
+
+            margin-bottom: 15px;
+
+            font-weight: 700;
+
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+
+
+        .hero p {
+
+            font-size: 1.2em;
+
+            margin-bottom: 25px;
+
+        }
+
+
+
+        .hero p span {
+
+            font-weight: bold;
+
+            color: #fdd835;
+
+        }
         /* Buttons */
         .btn {
             display: inline-block;
