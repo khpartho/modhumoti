@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhi Filling Station - Modhumoti</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General Body & Container Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #003366; /* Deep blue */
+            color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header .logo img {
+            height: 50px; /* Adjust logo size */
+            margin-right: 10px;
+            border-radius: 50%; /* Make logo circular if desired */
+        }
+
+        header .logo h1 {
+            font-size: 1.8em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 30px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent; /* For hover effect */
+        }
+
+        header nav ul li a:hover,
+        header nav ul li a.active {
+            color: #fdd835; /* Yellow highlight on hover */
+            border-bottom: 2px solid #fdd835;
+        }
+
+        /* Hero Section */
+       .hero {
+ position: relative;
+ text-align: center;
+ color: #fff;
+ overflow: hidden;
+ padding: 80px 0;
+ display: flex;
+ flex-direction: column; /* লেখাগুলাকে উল্লম্বভাবে সাজানোর জন্য */
+ align-items: center; /* লেখাগুলাকে অনুভূমিকভাবে মাঝখানে আনার জন্য */
+ justify-content: center; /* লেখাগুলাকে উল্লম্বভাবে মাঝখানে আনার জন্য */
+ min-height: 500px; /* প্রয়োজন অনুযায়ী উচ্চতা সেট করুন */
+ background-image: url('Screenshot 2025-05-31 103836.png'); /* আপনার ছবির URL দিন */
+ background-size: cover; /* অথবা contain - আপনার প্রয়োজন অনুযায়ী */
+ background-position: center;
+}
+
+/* যদি আপনার হিরো সেকশনে কোনো ওভারলে থাকে (যেমন হালকা কালো রঙের), তবে সেটা .hero::before দিয়ে করতে পারেন: */
+/ .hero::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5); /* হালকা কালো রঙের ওভারলে */
+ z-index: 1;
+}
+
+.hero > * { /* হিরোর ভেতরের এলিমেন্টগুলোর z-index বাড়িয়ে ওভারলের উপরে দেখানোর জন্য */
+ z-index: 2;
+ position: relative; /* পজিশনিং কনটেক্সট তৈরি করার জন্য */
+} */
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire section */
+            filter: brightness(0.5); /* Dim the image for text readability */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.4); /* Slightly transparent background for text */
+            border-radius: 10px;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .hero p span {
+            font-weight: bold;
+            color: #fdd835;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #fdd835; /* Yellow */
+            color: #003366; /* Deep blue text */
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffc107; /* Lighter yellow */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #0056b3; /* Medium blue */
+            color: #fff;
+            border: 1px solid #0056b3;
+        }
+
+        .btn-secondary:hover {
+            background-color: #004085; /* Darker blue */
+            transform: translateY(-2px);
+        }
+
+        /* Sales Banner */
+        .sales-banner {
+            background-color: #fdd835; /* Yellow */
+            color: #003366;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .sales-banner span {
+            color: #e65100; /* Orange for emphasis */
+        }
+
+        /* Enterprise Section */
+        .enterprise-section {
+            padding: 40px 0;
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-flex {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px; /* Minimum width for sidebar */
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar h3 {
+            font-size: 1.4em;
+            color: #003366;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fdd835;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #555;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            background-color: #fdd835;
+            color: #003366;
+            font-weight: 600;
+        }
+
+        .main-content {
+            flex: 3;
+            min-width: 600px; /* Minimum width for main content */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .main-content h3 {
+            font-size: 2em;
+            color: #003366;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .main-content h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #fdd835;
+        }
+
+        .main-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: #e0f2f7; /* Light blue */
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item i {
+            font-size: 3em;
+            color: #0056b3; /* Medium blue */
+            margin-bottom: 15px;
+        }
+
+        .service-item h4 {
+            font-size: 1.3em;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 40px 0;
+            background-color: #fcfcfc;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5em;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 40px 0;
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .contact-info p i {
+            margin-right: 15px;
+            color: #fdd835;
+            font-size: 1.3em;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #fdd835;
+            box-shadow: 0 0 8px rgba(253, 216, 53, 0.4);
+            outline: none;
+        }
+
+        .contact-form textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366; /* Deep blue */
+            color: #fff;
+            padding: 50px 0 20px 0;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.4em;
+            color: #fdd835; /* Yellow */
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #fdd835;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fdd835;
+        }
+
+        .footer-col.logo-address .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-col.logo-address .logo img {
+            height: 45px;
+            margin-right: 10px;
+        }
+
+        .footer-col.logo-address .logo h4 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.6em;
+            border-bottom: none; /* Remove border from logo h4 */
+        }
+
+        .footer-col.logo-address p {
+            display: flex;
+            align-items: flex-start; /* Align text from top if it wraps */
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-col.logo-address p i {
+            margin-right: 15px;
+            color: #fdd835;
+            font-size: 1.2em;
+            margin-top: 3px; /* Adjust icon vertical alignment */
+        }
+
+        .copyright {
+            background-color: #002244; /* Even darker blue */
+            color: #aaa;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        /* Animations (Fade-in on scroll) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design (Basic) */
+        @media (max-width: 992px) {
+            .content-flex {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                min-width: unset; /* Remove min-width for smaller screens */
+            }
+            .main-content {
+                margin-top: 20px;
+            }
+            header .logo h1 {
+                font-size: 1.5em;
+            }
+            header nav ul li {
+                margin-left: 15px;
+            }
+            .hero h2 {
+                font-size: 2.5em;
+            }
+            .sales-banner {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            header nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            header nav ul li {
+                margin: 5px 10px;
+            }
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+            .footer-col h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-col.logo-address .logo {
+                justify-content: center;
+            }
+            .footer-col.logo-address p {
+                justify-content: center;
+            }
+            .service-grid {
+                grid-template-columns: 1fr; /* Stack services on small screens */
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Stack images on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <h1>MODHUMOTI</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#enterprise">Enterprise</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero fade-in">
+            <div class="container">
+   <h2>Akhi Filling Station</h2>
+                    <p>Year of Establishment: <span>2002</span></p>
+                    <p>Company Type: <span>Fuel Station</span></p>
+                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
+                </div>
+            </div>
+        </section>
+
+<section id="enterprise" class="enterprise-section fade-in">
+            <div class="container content-flex">
+                <aside class="sidebar">
+                    <h3>MODHUMOTI GROUP UNITS</h3>
+                    <ul>
+                        <li><a href="#">MODHUMOTI TRANSPORT</a></li>
+                        <li><a href="#">AKHI FILLING STATION</a></li>
+                        <li><a href="#">MODHUMOTI CAR RENT</a></li>
+                        
+                        <li><a href="#">MODHUMOTI STORAGE</a></li>
+                        
+
+                        
+                    </ul>
+                </aside>
+                <div class="main-content">
+                    <h3>About Akhi Filling Station</h3>
+                    <p>Akhi Filling Station, established in 2002, is a proud venture of Modhumoti Group, committed to providing top-quality fuel and exceptional service to our customers. Located strategically at Jamtoli Bazar, Singra, Natore, we ensure a smooth and efficient experience for every vehicle.</p>
+
+                    <h3 id="services">Our Services</h3>
+                    <div class="service-grid">
+                        <div class="service-item">
+                            <i class="fas fa-gas-pump"></i>
+                            <h4>Petrol (Octane & Regular)</h4>
+                            <p>High-quality fuel for optimal engine performance.</p>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-truck-pickup"></i>
+                            <h4>Diesel</h4>
+                            <p>Reliable diesel supply for all commercial and private vehicles.</p>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-leaf"></i>
+                            <h4>CNG (Compressed Natural Gas)</h4>
+                            <p>Eco-friendly alternative fuel for a greener journey.</p>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-oil-can"></i>
+                            <h4>Lubricants & Additives</h4>
+                            <p>Premium lubricants to extend your vehicle's life.</p>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-tire"></i>
+                            <h4>Tyre Air Check</h4>
+                            <p>Complimentary tyre pressure check for your safety.</p>
+                        </div>
+                        <div class="service-item">
+                            <i class="fas fa-store"></i>
+                            <h4>Convenience Store</h4>
+                            <p>Grab snacks, drinks, and essential items on the go.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section fade-in">
+            <div class="container">
+                <h2>Our Gallery</h2>
+                <div class="gallery-grid">
+                    <img src="Picsart_25-06-05_21-38-36-450.jpg" alt="Filling Station View 1"> <img src="Picsart_25-06-05_21-38-12-842.jpg" alt="Filling Station View 2"> <img src="photo-1585740452884-2a29a1d21514.jpg" alt="Filling Station View 3"> </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section fade-in">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Jamtoli Bazar, Singra, Natore</p>
+                    <p><i class="fas fa-phone-alt"></i> +880 1716-783870</p>
+                    <p><i class="fas fa-envelope"></i> info@modhumotigroup.com</p>
+                    <p><i class="fas fa-clock"></i> Working Hours: 24/7 (for fuel service)</p>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5"></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-col logo-address">
+                <div class="logo">
+                     <h4>MODHUMOTI</h4>
+                </div>
+                <p><i class="fas fa-map-marker-alt"></i> Jamtoli Bazar, Singra, Natore</p>
+                <p><i class="fas fa-phone-alt"></i>+880 1716-783870</p>
+                <p><i class="fas fa-envelope"></i> info@modhumotigroup.com</p>
+            </div>
+            <div class="footer-col enterprise-nav">
+                <h4>ENTERPRISE</h4>
+                <ul>
+                   
+                    <li><a href="#">Transport</a></li>
+                    <li><a href="#">Trading</a></li>
+                </ul>
+            </div>
+            <div class="footer-col main-nav">
+                <h4>NAVIGATION</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#enterprise">Enterprise</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Modhumoti. All Rights Reserved. Powered by <a href=https://khpartho.github.io/me/>KH Partho</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        // Remove 'active' class from all nav links
+                        document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                        // Add 'active' class to the clicked link
+                        this.classList.add('active');
+
+                        // Scroll to the target section
+                        window.scrollTo({
+                            top: targetSection.offsetTop - document.querySelector('header').offsetHeight, // Adjust for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Fade-in animation on scroll
+            const faders = document.querySelectorAll('.fade-in');
+
+            const appearOptions = {
+                threshold: 0.2, // When 20% of the element is visible
+                rootMargin: "0px 0px -50px 0px" // Adjust to trigger earlier/later
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        appearOnScroll.unobserve(entry.target); // Stop observing once it's active
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // Set initial 'active' class for the home link
+            const homeLink = document.querySelector('nav a[href="#home"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+
+            // Optional: Update active nav link on scroll
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('main section');
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const scrollPos = window.scrollY + headerHeight + 50; // Add some offset
+
+                sections.forEach(section => {
+                    if (section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+                        document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                        const correspondingLink = document.querySelector(`nav a[href="#${section.id}"]`);
+                        if (correspondingLink) {
+                            correspondingLink.classList.add('active');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
